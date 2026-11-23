@@ -1,0 +1,15 @@
+def add_item(item, order=None): 
+if order is None: 
+order = [] 
+order.append(item) 
+return order 
+
+def f(): 
+x = "local"          # local name, global untouched 
+def g(): 
+global x; x = "changed"   # needs the global keyword 
+def outer(): 
+c = 0 
+def inner(): 
+nonlocal c; c += 1    # modifies the enclosing variable 
+return inner
